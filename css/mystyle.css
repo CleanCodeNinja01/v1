@@ -176,6 +176,10 @@ section {
   display: inline-block;
   color: #adb4ca;
   /* background-color: #0f0; */
+  .highlight {
+	font-size: 1em;
+	font-weight: 600;
+  }
 }
 
 .bg .headingStyles {
