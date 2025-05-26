@@ -409,44 +409,6 @@ section {
 	color: #adb4ca;
   }
 
-  @media screen and (max-width: 1230px) {
-    #experience {
-      width: 90%;
-      margin-left: 0; /* Center the section */
-      margin-top: 20px; /* Add some top margin */
-    }
-    .bg {
-      padding: 40px;
-    }
-    .bg > div {
-      flex: 1 1 100%; /* Full width on smaller screens */
-      margin-bottom: 20px; /* Add some space between sections */
-    }
-    .sidebar {
-      margin-top: 20px;
-    }
-    .sidebar ul li {
-      font-size: 14px; /* Adjust font size for smaller screens */
-    }
-
-    #project {
-      width: 90%;
-      margin-left: 0; /* Center the section */
-      margin-top: 20px; /* Add some top margin */
-    }
-    .project-header img {
-      width: 100px; /* Adjust image size for smaller screens */
-      height: 70px;
-    }
-    .project-header h3 {
-      font-size: 16px; /* Adjust font size for smaller screens */
-    }
-    .project-header h3 .external-link {
-      font-size: 14px; /* Adjust font size for smaller screens */
-    }
-    
-  }
-
   @media screen and (max-width: 1589) {
     #experience {
       width: 80%;
@@ -467,11 +429,6 @@ section {
       font-size: 14px; /* Adjust font size for smaller screens */
     }
 
-    #project {
-      width: 90%;
-      margin-left: 0; /* Center the section */
-      margin-top: 20px; /* Add some top margin */
-    }
     .project-header img {
       width: 100px; /* Adjust image size for smaller screens */
       height: 70px;
@@ -484,3 +441,98 @@ section {
     }
     
   }
+
+
+  @media screen and (max-width: 1230px) {
+    #experience {
+      width: 90%;
+      margin-left: 0; /* Center the section */
+      margin-top: 20px; /* Add some top margin */
+    }
+    .bg {
+      padding: 40px;
+    }
+    .bg > div {
+      flex: 1 1 100%; /* Full width on smaller screens */
+      margin-bottom: 20px; /* Add some space between sections */
+    }
+    .sidebar {
+      margin-top: 20px;
+    }
+    .sidebar ul li {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .project-header img {
+      width: 100px; /* Adjust image size for smaller screens */
+      height: 70px;
+    }
+    .project-header h3 {
+      font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    .project-header h3 .external-link {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    
+  }
+
+  @media screen and (max-width: 1300px) {
+
+    #about {
+      padding: 0px;
+    }
+
+    .bg {
+      width: 115%;
+    }
+
+    .experience-card {
+      margin-left: -40px;
+    }
+
+    #project {
+      width: 100%;
+      margin-left: -40px;
+    }
+
+    .footer {
+      width: 115%;
+    }
+
+    .view-resume {
+      margin-left: -20px;
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    .bg {
+      width: 130%;
+    }
+
+    .footer {
+      width: 130%;
+    }
+
+    #project {
+      width: 100%;;
+    }
+  }
+
+  @media screen and (max-width: 391px) {
+    .bg {
+      width: 125%;
+    }
+    .footer {
+      width: 125%;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .bg {
+      width: 125%;
+    }
+    .footer {
+      width: 125%;
+    }
+  }
+
