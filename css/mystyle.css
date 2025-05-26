@@ -357,14 +357,17 @@ section {
   transition: all 0.3s;
 }
 
-.sidebar li.active,
+.sidebar li.active {
+  color: #adb4ca;
+}
 .sidebar li:hover {
   color: #adb4ca;
 }
 
-.sidebar li.active span,
+.sidebar li.active span{
+  width: 80px;
+}
 .sidebar li:hover span {
-  background-color: #adb4ca;
   width: 80px;
 }
 
@@ -373,116 +376,6 @@ section {
   text-decoration: none;
 }
 
-/* section {
-	height: 100vh;
-	border-bottom: 1px solid #233554;
-  } */
-
-/*Start NavBar*/
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 100px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.5s;
-}
-header.sticky {
-  background: #fff;
-  padding: 20px 100px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-header .logo {
-  color: #fff;
-  font-size: 24px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 2px;
-  outline: 0;
-}
-header.sticky .logo {
-  color: #111;
-}
-header ul {
-  position: relative;
-  display: flex;
-}
-header ul li {
-  position: relative;
-  list-style: none;
-}
-header ul li a {
-  position: relative;
-  display: inline-block;
-  margin: 0 15px;
-  color: #fff;
-  text-decoration: none;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-header.sticky ul li a {
-  color: #111;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-header ul li a:hover,
-header ul li.activeColor a,
-header.sticky ul li a:hover,
-header.sticky ul li.activeColor a {
-  color: #2196f3;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-/*End NavBar*/
-
-/*Start About*/
-.about .heading h2 {
-  margin-bottom: 40px;
-}
-.content {
-  display: flex;
-  justify-content: space-between;
-}
-.content .contentBx {
-  padding-right: 30px;
-}
-.content .contentBx h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.content .contentBx p {
-  line-height: 1.5;
-  text-align: center;
-}
-.about .content .contentBx #more {
-  display: none;
-}
-#readMoreBtn {
-  margin-top: 20px;
-  /* margin-left: 180px; */
-}
-.w50 {
-  min-width: 50%;
-}
-.w50 img {
-  max-width: 100%;
-}
-.downloadCv {
-  margin-top: 60px;
-}
-/*End About*/
 
 .footer {
 	background-color: #000;
@@ -519,6 +412,44 @@ header.sticky ul li.activeColor a {
   @media screen and (max-width: 1230px) {
     #experience {
       width: 90%;
+      margin-left: 0; /* Center the section */
+      margin-top: 20px; /* Add some top margin */
+    }
+    .bg {
+      padding: 40px;
+    }
+    .bg > div {
+      flex: 1 1 100%; /* Full width on smaller screens */
+      margin-bottom: 20px; /* Add some space between sections */
+    }
+    .sidebar {
+      margin-top: 20px;
+    }
+    .sidebar ul li {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    #project {
+      width: 90%;
+      margin-left: 0; /* Center the section */
+      margin-top: 20px; /* Add some top margin */
+    }
+    .project-header img {
+      width: 100px; /* Adjust image size for smaller screens */
+      height: 70px;
+    }
+    .project-header h3 {
+      font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    .project-header h3 .external-link {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    
+  }
+
+  @media screen and (max-width: 1589) {
+    #experience {
+      width: 80%;
       margin-left: 0; /* Center the section */
       margin-top: 20px; /* Add some top margin */
     }
