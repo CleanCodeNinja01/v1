@@ -21,13 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle scroll for active section highlighting
   window.addEventListener("scroll", () => {
     let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute("id");
-      }
-    });
+    const scrollPosition = window.pageYOffset;
+
+    // If at the very top, highlight 'about'
+    if (scrollPosition < 100) {
+      current = "about";
+    } else {
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollPosition >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute("id");
+        }
+      });
+    }
 
     navLinks.forEach((link) => {
       link.parentElement.classList.remove("active");
