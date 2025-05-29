@@ -287,7 +287,7 @@ section {
   padding-top: 24px;
   display: inline-block;
   color: #adb4ca;
-  /* background-color: #0f0; */
+  margin-right: 24px;
   .highlight {
     font-size: 1em;
     font-weight: 600;
@@ -403,17 +403,20 @@ section {
 }
 
 @media screen and (max-width: 768px) {
+  #about {
+    margin-top: -60px;
+  }
   #experience {
-    width: 90%;
-    margin-left: 0; /* Center the section */
-    margin-top: 20px; /* Add some top margin */
+    margin-left: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
   }
   .bg {
     padding: 40px;
   }
   .bg > div {
-    flex: 1 1 100%; /* Full width on smaller screens */
-    margin-bottom: 20px; /* Add some space between sections */
+    flex: 1 1 100%;
+    margin-bottom: 20px;
   }
   .sidebar {
     margin-top: 20px;
