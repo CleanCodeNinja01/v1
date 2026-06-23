@@ -402,38 +402,9 @@ section {
   color: #adb4ca;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1600px) {
   #about {
-    margin-top: -60px;
-  }
-  #experience {
-    margin-left: 0px;
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-  .bg {
-    padding: 40px;
-  }
-  .bg > div {
-    flex: 1 1 100%;
-    margin-bottom: 20px;
-  }
-  .sidebar {
-    margin-top: 20px;
-  }
-  .sidebar ul li {
-    font-size: 14px; /* Adjust font size for smaller screens */
-  }
-
-  .project-header img {
-    width: 100px; /* Adjust image size for smaller screens */
-    height: 70px;
-  }
-  .project-header h3 {
-    font-size: 16px; /* Adjust font size for smaller screens */
-  }
-  .project-header h3 .external-link {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    margin-right: 36px;
   }
 }
 
@@ -475,6 +446,41 @@ section {
 
   #project {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #about {
+    margin-top: -60px;
+  }
+  #experience {
+    margin-left: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  .bg {
+    padding: 40px;
+  }
+  .bg > div {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+  .sidebar {
+    margin-top: 20px;
+  }
+  .sidebar ul li {
+    font-size: 14px;
+  }
+
+  .project-header img {
+    width: 100px; /* Adjust image size for smaller screens */
+    height: 70px;
+  }
+  .project-header h3 {
+    font-size: 16px;
+  }
+  .project-header h3 .external-link {
+    font-size: 14px;
   }
 }
 
