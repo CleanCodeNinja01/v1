@@ -97,21 +97,36 @@ section {
 }
 
 .view-resume {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
   margin-left: 24px;
   margin-top: 16px;
-  color: var(--experience-title-color);
-  font-weight: var(--experience-title-weight);
-  .external-link {
-    font-size: 16px;
-    color: #64ffda;
-    text-decoration: none;
-    margin-left: 5px;
-    transition: color 0.3s ease;
-  }
+}
 
-  .external-link:hover {
-    color: #adb4ca;
-  }
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #64ffda;
+  border-radius: 4px;
+  color: #64ffda;
+  font-size: 16px;
+  font-weight: var(--experience-title-weight);
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.resume-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  color: #adb4ca;
+  border-color: #adb4ca;
+}
+
+.resume-btn-primary {
+  background-color: rgba(100, 255, 218, 0.08);
 }
 
 .experience-header h3 .external-link:hover {
