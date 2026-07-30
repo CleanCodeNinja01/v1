@@ -187,11 +187,27 @@ section {
 .project-header img {
   width: 150px;
   height: 100px;
+  object-fit: cover;
+  object-position: top center;
   border: 2px solid #64ffda;
   border-radius: 8px;
   /* font-size: 14px;
 	color: #adb4ca;
 	font-weight: 500; */
+}
+
+.project-repo-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #64ffda;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-repo-link:hover {
+  color: #adb4ca;
 }
 
 .project-header h3 {
