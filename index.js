@@ -1,6 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".sidebar a");
+  const themeToggle = document.getElementById("theme-toggle");
+
+  const applyTheme = (theme) => {
+    if (theme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    localStorage.setItem("theme", theme);
+
+    if (themeToggle) {
+      const icon = themeToggle.querySelector("i");
+      if (theme === "light") {
+        themeToggle.setAttribute("aria-label", "Switch to dark theme");
+        if (icon) icon.className = "fa fa-moon-o";
+      } else {
+        themeToggle.setAttribute("aria-label", "Switch to light theme");
+        if (icon) icon.className = "fa fa-sun-o";
+      }
+    }
+  };
+
+  applyTheme(localStorage.getItem("theme") === "light" ? "light" : "dark");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const nextTheme =
+        document.documentElement.getAttribute("data-theme") === "light"
+          ? "dark"
+          : "light";
+      applyTheme(nextTheme);
+    });
+  }
 
   // Handle navigation clicks
   navLinks.forEach((link) => {

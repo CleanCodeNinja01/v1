@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saleha Shujaat</title>
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="css/all.css" />
     <link rel="stylesheet" href="css/normalize.css" />
@@ -26,6 +35,9 @@
   </head>
 
   <body>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme">
+      <i class="fa fa-sun-o" aria-hidden="true"></i>
+    </button>
     <div id="loader">
       <svg class="loader-s-svg" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path class="loader-s-path" d="M75,20 C75,10 25,10 25,30 C25,50 75,50 75,70 C75,90 25,90 25,80" stroke="#64ffda" stroke-width="6" stroke-linecap="round" fill="none"/>
@@ -79,7 +91,7 @@
             <li><span></span><a href="/about">About</a></li>
             <li><span></span><a href="/experience">Experience</a></li>
             <li><span></span><a href="/project">Projects</a></li>
-            <li><span></span><a href="https://medium.com/@saleha.shujaat97">Blogs</a></li>
+            <li><span></span><a href="https://salehashujaat.substack.com/">Blogs</a></li>
             <li><span></span><a href="https://calendly.com/saleha-shujaat/30min">Book a Call</a></li>
           </ul>
         </nav>
@@ -89,7 +101,7 @@
               <div class="experience-header">
                 <span class="experience-date">October 2025 — June 2026</span>
                 <h3 class="experience-title">
-                  Software Engineer II, LaunchGood
+                  Software Engineer, LaunchGood
                   <a
                     href="https://www.launchgood.com/"
                     target="_blank"
@@ -291,7 +303,6 @@
                 href="Saleha-Shujaat-Resume.pdf"
                 class="resume-btn resume-btn-primary"
                 download
-              >
                 <i class="fa fa-download"></i> Download Resume
               </a>
             </div>
@@ -301,7 +312,9 @@
               <div class="project-header">
                   <img src="img/fajr-companion.png" alt="Fajr Companion app home screen">
                 <div class="project-box">
-                  <h3 class="project-title">Fajr Companion</h3>
+                  <h3 class="project-title">Fajr Companion
+                    <a href="https://play.google.com/store/apps/details?id=com.fajrcompanion.app" target="_blank" rel="noopener noreferrer">↗</a>
+                  </h3>
                     <p class="project-description">
                       A mobile companion app for waking up for Fajr prayer, featuring prayer-time based alarms, wake-up confirmation through prayer mat photo verification using CLIP AI, and daily consistency tracking.
                     </p>
