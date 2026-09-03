@@ -87,10 +87,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-window.addEventListener("load", () => {
+(() => {
   const loader = document.getElementById("loader");
-  if (loader) {
-    loader.style.opacity = "0";
-    setTimeout(() => (loader.style.display = "none"), 500);
-  }
-});
+  if (!loader) return;
+
+  const minVisibleMs = window.matchMedia("(prefers-reduced-motion: reduce)")
+    .matches
+    ? 400
+    : 2100;
+  const shownAt = Date.now();
+
+  const dismiss = () => {
+    loader.classList.add("loader--done");
+    loader.addEventListener(
+      "transitionend",
+      () => loader.remove(),
+      { once: true }
+    );
+    setTimeout(() => loader.remove(), 700);
+  };
+
+  window.addEventListener("load", () => {
+    const wait = Math.max(0, minVisibleMs - (Date.now() - shownAt));
+    setTimeout(dismiss, wait);
+  });
+})();

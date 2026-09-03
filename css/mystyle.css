@@ -605,38 +605,128 @@ section {
 
 #loader {
   position: fixed;
+  inset: 0;
   z-index: 9999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  display: grid;
+  place-items: center;
   background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: opacity 0.5s, background-color 0.3s ease;
+  transition: opacity 0.55s ease, visibility 0.55s ease,
+    background-color 0.3s ease;
+}
+
+#loader.loader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-mark {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  animation: loader-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.loader-mark::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--loader-glow) 0%, transparent 68%);
+  animation: loader-glow 1.8s ease-in-out 0.7s infinite;
+  pointer-events: none;
+}
+
+#loader.loader--done .loader-mark {
+  animation: loader-exit 0.55s ease forwards;
 }
 
 .loader-s-svg {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   display: block;
+  overflow: visible;
+}
+
+.loader-hex {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.25;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: loader-draw 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.loader-hex--soft {
+  stroke-width: 6;
+  stroke-opacity: 0.18;
+  filter: blur(1.5px);
+  animation-duration: 0.9s;
 }
 
 .loader-s-path {
+  fill: none;
   stroke: var(--accent);
   stroke-width: 6;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 8px var(--loader-glow));
-  stroke-dasharray: 320;
-  stroke-dashoffset: 320;
-  animation: draw-s 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 6px var(--loader-glow));
+  animation: loader-draw 0.85s cubic-bezier(0.77, 0, 0.175, 1) 0.45s forwards;
 }
 
-@keyframes draw-s {
+@keyframes loader-draw {
   to {
     stroke-dashoffset: 0;
-    filter: drop-shadow(0 0 16px var(--accent));
+  }
+}
+
+@keyframes loader-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loader-exit {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes loader-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-mark,
+  .loader-mark::before,
+  .loader-hex,
+  .loader-s-path {
+    animation: none;
+  }
+
+  .loader-hex,
+  .loader-s-path {
+    stroke-dashoffset: 0;
+  }
+
+  .loader-mark::before {
+    opacity: 0.55;
   }
 }
