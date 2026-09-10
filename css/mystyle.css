@@ -253,6 +253,13 @@ section {
   object-position: top center;
   border: 2px solid var(--accent);
   border-radius: 8px;
+}
+
+.project-header img.project-logo {
+  object-fit: contain;
+  object-position: center;
+  background: #3c1e5c;
+  padding: 10px;
   /* font-size: 14px;
 	color: #adb4ca;
 	font-weight: 500; */
