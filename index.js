@@ -1,3 +1,28 @@
+const trackEvent = (name, params = {}) => {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", name, params);
+};
+
+const sectionTitles = {
+  about: "About",
+  experience: "Experience",
+  project: "Projects",
+};
+
+const trackPageView = (path) => {
+  const section = path.replace(/^\//, "");
+  const title = sectionTitles[section]
+    ? `Saleha Shujaat — ${sectionTitles[section]}`
+    : "Saleha Shujaat";
+  const pagePath = path || "/";
+
+  trackEvent("page_view", {
+    page_title: title,
+    page_location: `${window.location.origin}${pagePath}`,
+    page_path: pagePath,
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".sidebar a");
@@ -44,8 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
           targetSection.scrollIntoView({ behavior: "smooth" });
-          // Update URL without the hash
-          window.history.pushState({}, "", link.getAttribute("href"));
+          const path = link.getAttribute("href");
+          window.history.pushState({}, "", path);
+          trackPageView(path);
+          trackEvent("nav_click", {
+            section: targetId,
+            link_text: link.textContent.trim(),
+          });
         }
       });
     }
@@ -83,6 +113,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetSection = document.getElementById(targetId);
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: "smooth" });
+      trackPageView(window.location.pathname);
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link || !link.href) return;
+
+    const href = link.getAttribute("href") || "";
+    const text = link.textContent.replace(/\s+/g, " ").trim();
+    const url = link.href;
+
+    if (url.includes("calendly.com")) {
+      trackEvent("book_call", {
+        link_url: url,
+        link_text: text,
+      });
+      return;
+    }
+
+    if (link.hasAttribute("download") || href.endsWith(".pdf")) {
+      trackEvent("file_download", {
+        file_name: href.split("/").pop(),
+        file_extension: "pdf",
+        link_text: text,
+        link_url: url,
+        method: link.hasAttribute("download") ? "download" : "view",
+      });
+      return;
+    }
+
+    if (link.closest(".project-card")) {
+      const project =
+        link.closest(".project-card").querySelector(".project-title")
+          ?.childNodes[0]?.textContent?.trim() || text;
+      trackEvent("select_content", {
+        content_type: "project",
+        item_id: project,
+        link_url: url,
+      });
+      return;
+    }
+
+    if (link.closest(".footer") || link.hostname !== window.location.hostname) {
+      trackEvent("outbound_click", {
+        link_url: url,
+        link_text: text,
+        link_domain: link.hostname,
+      });
     }
   });
 });

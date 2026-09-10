@@ -28,7 +28,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-8SHS5VJVGV');
+      gtag('config', 'G-8SHS5VJVGV', {
+        anonymize_ip: true,
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname
+      });
     </script>
     <script src="index.js" defer></script>
   </head>
